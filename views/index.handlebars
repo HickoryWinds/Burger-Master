@@ -1,0 +1,32 @@
+{{!-- title --}}
+<h1>Burger Mania!</h1>
+
+{{!-- show burgers as list --}}
+    <h4>to be eaten</h4>
+        <ul>
+{{#each burgers}}
+    {{#unless this.devoured}}
+            <li>
+                <p><span class='label'>ID </span>{{this.id}}</p>
+                <p><span class='label'>Burger </span>{{this.burger_name}}</p>
+                <p><span class='label'>Devoured </span>{{this.devoured}}</p>
+            </li>
+            {{/unless}}
+{{/each}}
+        </ul>
+
+<hr>
+
+{{!-- show burgers as list --}}
+<h4>in the pit</h4>
+    <ul>
+{{#each burgers}}
+{{#if this.devoured}}
+        <li>
+            <p><span class='label'>ID </span>{{this.id}}</p>
+            <p><span class='label'>Burger </span>{{this.burger_name}}</p>
+            <p><span class='label'>Devoured </span>{{this.devoured}}</p>
+        </li>
+        {{/if}}
+{{/each}}
+    </ul>
