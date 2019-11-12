@@ -7,6 +7,8 @@ var exphbs = require('express-handlebars');
 var PORT = process.env.PORT || 5000;
 // import orm to be used in calls
 // var orm = require('./config/orm.js');
+var methodOverride = require('method-override')
+app.use(methodOverride('_method'));
 
 var bodyParser = require('body-parser');
 

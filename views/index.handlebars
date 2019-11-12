@@ -13,17 +13,40 @@
             <form class='create-form'>
 
                 <ul>
+                    {{!-- list database entries where devoured is false --}}
                     {{#each burgers}}
                     {{#unless this.devoured}}
                     <li>
                         <p><span class='label'>ID </span>{{this.id}}</p>
                         <p><span class='label'>Burger </span>{{this.burger_name}}</p>
                         <p><span class='label'>Devoured </span>{{this.devoured}}</p>
+
+                        <form action="burgers/update/{{this.id}}?_method=PUT" method='POST'>
+                            <input type='hidden' name='devoured' value='true'>
+                            <button type='submit'>Devour</button>
+                        </form>
                     </li>
                     {{/unless}}
                     {{/each}}
                 </ul>
             </form>
+            <h5>Adda burger{{this.id}}</h5>
+            <form class="update-form" action="/burgers/create" method='POST'>
+
+                <div class="form-group">
+                    {{!-- <label for="auth">:</label> --}}
+                    <input type="text" name="sandwich" placeholder="your choice">
+                </div>
+
+                {{!-- <div class="form-group">
+                    <label for="quo">Quote:</label>
+                    <textarea id="quo" name="quote" rows="8" cols="40">{{this.quote}}</textarea>
+                </div> --}}
+
+                <button type="submit">Update Burger List</button>
+            </form>
+
+
         </div>
         {{!-- column for image --}}
         <div class="col-4">
@@ -35,6 +58,7 @@
             {{!-- show burgers devoured as list --}}
             <h4>in the pit</h4>
             <ul>
+                {{!-- list database entries where devoured is true --}}
                 {{#each burgers}}
                 {{#if this.devoured}}
                 <li>
