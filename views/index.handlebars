@@ -1,32 +1,50 @@
-{{!-- title --}}
-<h1>Burger Mania!</h1>
+{{!-- make container for page --}}
+<div class='container'>
+    {{!-- title --}}
+    <h1>Burger Mania!</h1>
+    {{!-- create row with three columns --}}
+    <div class="row">
+        {{!-- column for burger to eat --}}
+        <div class="col-4">
 
-{{!-- show burgers as list --}}
-    <h4>to be eaten</h4>
-        <ul>
-{{#each burgers}}
-    {{#unless this.devoured}}
-            <li>
-                <p><span class='label'>ID </span>{{this.id}}</p>
-                <p><span class='label'>Burger </span>{{this.burger_name}}</p>
-                <p><span class='label'>Devoured </span>{{this.devoured}}</p>
-            </li>
-            {{/unless}}
-{{/each}}
-        </ul>
+            {{!-- show burgers to eat as list --}}
+            <h4>to be eaten</h4>
+            {{!-- create form and form group elements --}}
+            <form class='create-form'>
 
-<hr>
+                <ul>
+                    {{#each burgers}}
+                    {{#unless this.devoured}}
+                    <li>
+                        <p><span class='label'>ID </span>{{this.id}}</p>
+                        <p><span class='label'>Burger </span>{{this.burger_name}}</p>
+                        <p><span class='label'>Devoured </span>{{this.devoured}}</p>
+                    </li>
+                    {{/unless}}
+                    {{/each}}
+                </ul>
+            </form>
+        </div>
+        {{!-- column for image --}}
+        <div class="col-4">
+            <h2>Image Placeholder</h2>
+        </div>
+        {{!-- column for devoured burgers --}}
+        <div class="col-4">
 
-{{!-- show burgers as list --}}
-<h4>in the pit</h4>
-    <ul>
-{{#each burgers}}
-{{#if this.devoured}}
-        <li>
-            <p><span class='label'>ID </span>{{this.id}}</p>
-            <p><span class='label'>Burger </span>{{this.burger_name}}</p>
-            <p><span class='label'>Devoured </span>{{this.devoured}}</p>
-        </li>
-        {{/if}}
-{{/each}}
-    </ul>
+            {{!-- show burgers devoured as list --}}
+            <h4>in the pit</h4>
+            <ul>
+                {{#each burgers}}
+                {{#if this.devoured}}
+                <li>
+                    <p><span class='label'>ID </span>{{this.id}}</p>
+                    <p><span class='label'>Burger </span>{{this.burger_name}}</p>
+                    <p><span class='label'>Devoured </span>{{this.devoured}}</p>
+                </li>
+                {{/if}}
+                {{/each}}
+            </ul>
+        </div>
+    </div>
+</div>
