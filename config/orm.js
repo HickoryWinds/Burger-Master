@@ -34,6 +34,8 @@ var orm = {
     },
     // change 'devoured' in table burgers when button clicked
     devourBurger: function(table, objColVals, condition, cb){
+        console.log('=========')
+        console.log(objColVals)
         var queryString = 'UPDATE ' + table;
         queryString += ' SET ' + objToSql(objColVals);
         queryString += ' WHERE ' + condition;
@@ -48,6 +50,10 @@ var orm = {
     },
     // create new burger
     create: function (table, cols, vals, cb){
+        console.log('!!!!!!!!!!!');
+        console.log(table);
+        console.log(cols);
+        console.log(vals);
         var queryString = 'INSERT INTO ' + table;
         queryString += ' (' + cols.toString() + ') ';
         queryString += 'VALUES (' + printQuestionMarks(vals.length) + ') ';
