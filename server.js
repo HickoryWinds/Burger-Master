@@ -5,8 +5,7 @@ var app = express();
 var exphbs = require('express-handlebars');
 // set port for application to work on any server
 var PORT = process.env.PORT || 5000;
-// import orm to be used in calls
-// var orm = require('./config/orm.js');
+// import method-override for posting
 var methodOverride = require('method-override')
 app.use(methodOverride('_method'));
 

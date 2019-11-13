@@ -8,28 +8,31 @@
         <div class="col-4">
 
             {{!-- show burgers to eat as list --}}
-            <h4>to be eaten</h4>
+            <h4>To Be Eaten</h4>
             {{!-- create form and form group elements --}}
-            <form class='create-form'>
+            <ul>
+                {{!-- list database entries where devoured is false --}}
+                {{#each burgers}}
+                {{#unless this.devoured}}
+                <li>
+                    <p><span class='label'>ID </span>{{this.id}}</p>
+                    <p><span class='label'>Burger </span>{{this.burger_name}}</p>
+                    <p><span class='label'>Devoured </span>{{this.devoured}}</p>
 
-                <ul>
-                    {{!-- list database entries where devoured is false --}}
-                    {{#each burgers}}
-                    {{#unless this.devoured}}
-                    <li>
-                        <p><span class='label'>ID </span>{{this.id}}</p>
-                        <p><span class='label'>Burger </span>{{this.burger_name}}</p>
-                        <p><span class='label'>Devoured </span>{{this.devoured}}</p>
-
-                        <form action="burgers/update/{{this.id}}?_method=PUT" method='POST'>
-                            <input type='hidden' name='devoured' value='true'>
-                            <button type='submit'>Devour</button>
-                        </form>
-                    </li>
-                    {{/unless}}
-                    {{/each}}
-                </ul>
-            </form>
+                    <form action="burgers/update/{{this.id}}?_method=PUT" method='POST'>
+                        {{!-- <input type='hidden' name='devoured'> --}}
+                        <input type='hidden' name='devoured' value='true'>
+                        <button type='submit'>Devour</button>
+                    </form>
+                </li>
+                {{/unless}}
+                {{/each}}
+            </ul>
+        </div>
+        {{!-- column for image --}}
+        <div class="col-4">
+            <h2>Behold the Burger</h2>
+            <img src='/assets/img/burger.jpg' alt='The Burger' width="342px" height="342px">
             <h5>Adda burger{{this.id}}</h5>
             <form class="update-form" action="/burgers/create" method='POST'>
 
@@ -37,26 +40,14 @@
                     {{!-- <label for="auth">:</label> --}}
                     <input type="text" name="sandwich" placeholder="your choice">
                 </div>
-
-                {{!-- <div class="form-group">
-                    <label for="quo">Quote:</label>
-                    <textarea id="quo" name="quote" rows="8" cols="40">{{this.quote}}</textarea>
-                </div> --}}
-
                 <button type="submit">Update Burger List</button>
             </form>
-
-
-        </div>
-        {{!-- column for image --}}
-        <div class="col-4">
-            <h2>Image Placeholder</h2>
         </div>
         {{!-- column for devoured burgers --}}
         <div class="col-4">
 
             {{!-- show burgers devoured as list --}}
-            <h4>in the pit</h4>
+            <h4>In the Pit</h4>
             <ul>
                 {{!-- list database entries where devoured is true --}}
                 {{#each burgers}}

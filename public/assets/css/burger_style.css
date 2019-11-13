@@ -4,15 +4,17 @@ body {
 
 .col-4 {
     border: 3px solid red;
+    background-color: white;
 }
 
-h1 {
+h1, h2 {
     text-align: center;
 }
 
 li {
     padding: 5px;
     margin: 5px;
+    border: 2px solid palevioletred;
     background: #faebd7;
   }
   
@@ -22,6 +24,7 @@ li {
   
   .update-form {
     padding: 5px;
+    border: 2px solid palevioletred;
     margin: 5px;
     background: aqua;
   }
