@@ -37,14 +37,16 @@ router.put('/burgers/update/:id', function(req, res){
     console.log('******************')
     console.log('condition ' + condition);
     // burger.devourBurger({devoured: true}, condition, function(){
-    burger.devourBurger({devoured: req.body.devoured}, condition, function(){
+        burger.devourBurger(condition, function(){
+    // burger.devourBurger({devoured: req.body.devoured}, condition, function(){
     res.redirect('/burgers');
     });
 });
 
 // add a new burger to the list
 router.post('/burgers/create', function(req, res){
-    burger.create(['burger_name', 'devoured'],[req.body.sandwich, false], function(){
+    // burger.create(['burger_name', 'devoured'],[req.body.sandwich, false], function(){
+    burger.create('burger_name', req.body.sandwich, function(){
     // burger.create(['burger_name', 'devoured'],[req.body.name, req.body.devoured], function(){
         res.redirect('/burgers')
     });

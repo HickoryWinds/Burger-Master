@@ -9,15 +9,15 @@ function printQuestionMarks(num){
     return arr.toString();
 }
 
-function objToSql(ob){
-    var arr = [];
-    for (var key in ob){
-        if(ob.hasOwnProperty(key)){
-            arr.push(key + '=' + ob[key]);
-        }
-    }
-    return arr.toString();
-}
+// function objToSql(ob){
+//     var arr = [];
+//     for (var key in ob){
+//         if(ob.hasOwnProperty(key)){
+//             arr.push(key + '=' + ob[key]);
+//         }
+//     }
+//     return arr.toString();
+// }
 
 // create orm object containing all inquiries
 var orm = {
@@ -33,11 +33,14 @@ var orm = {
         });
     },
     // change 'devoured' in table burgers when button clicked
-    devourBurger: function(table, objColVals, condition, cb){
+    // devourBurger: function(table, objColVals, condition, cb){
+    devourBurger: function(table, condition, cb){
         console.log('=========')
-        console.log(objColVals)
+        // console.log(objColVals)
         var queryString = 'UPDATE ' + table;
-        queryString += ' SET ' + objToSql(objColVals);
+        // queryString += ' SET ' + objToSql(objColVals);
+        // queryString += ' SET ' + objColVals;
+        queryString += ' SET devoured = true';
         queryString += ' WHERE ' + condition;
         console.log(queryString);
         connection.query(queryString, function(err, result){
@@ -55,8 +58,10 @@ var orm = {
         console.log(cols);
         console.log(vals);
         var queryString = 'INSERT INTO ' + table;
+        // queryString += ' (' + cols.toString() + ') ';
         queryString += ' (' + cols.toString() + ') ';
-        queryString += 'VALUES (' + printQuestionMarks(vals.length) + ') ';
+        // queryString += 'VALUES (' + printQuestionMarks(vals.length) + ') ';
+        queryString += 'VALUES (?) ';
         console.log(queryString);
 
         connection.query(queryString, vals, function(err, result){

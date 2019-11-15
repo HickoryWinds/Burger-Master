@@ -13,8 +13,14 @@ var burger = {
     },
     // change 'devoured' in table burgers to true
     // cols and vals are arrays
-    devourBurger: function(cols, vals, cb){
-        orm.devourBurger('burgers', cols, vals, function(res){
+    // devourBurger: function(cols, vals, cb){
+    //     orm.devourBurger('burgers', cols, vals, function(res){
+    //         console.log('burger.js devour');
+    //         cb(res);
+    //     })
+    // },
+    devourBurger: function(vals, cb){
+        orm.devourBurger('burgers', vals, function(res){
             console.log('burger.js devour');
             cb(res);
         })
