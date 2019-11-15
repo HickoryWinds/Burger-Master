@@ -26,4 +26,3 @@ connection.connect(function(err){
 
 // export to be used in other modules
 module.exports = connection;
-console.log('1');

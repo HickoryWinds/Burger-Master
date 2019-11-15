@@ -7,7 +7,7 @@ USE burgers_db;
 
 -- create table
 CREATE TABLE burgers(
-  id INTEGER(11) AUTO_INCREMENT NOT NULL,
+  id INTEGER AUTO_INCREMENT NOT NULL,
   burger_name VARCHAR(200),
   devoured BOOLEAN DEFAULT false,
   PRIMARY KEY (id)

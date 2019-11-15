@@ -32,5 +32,3 @@ app.listen(PORT, function(){
     // display that port is monitored
     console.log('Serving listening on http://localhost: ' + PORT);
 });
-
-console.log('5');
