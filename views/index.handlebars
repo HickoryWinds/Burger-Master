@@ -20,7 +20,6 @@
                     {{!-- <p><span class='label'>Devoured </span>{{this.devoured}}</p> --}}
 
                     <form action="burgers/update/{{this.id}}?_method=PUT" method='POST'>
-                        {{!-- <input type='hidden' name='devoured'> --}}
                         <input type='hidden' name='devoured' value='true'>
                         <button type='submit'>Devour</button>
                     </form>
@@ -37,7 +36,6 @@
             <form class="update-form" action="/burgers/create" method='POST'>
 
                 <div class="form-group">
-                    {{!-- <label for="auth">:</label> --}}
                     <input type="text" name="sandwich" placeholder="your choice">
                 </div>
                 <button type="submit">Update Burger List</button>
