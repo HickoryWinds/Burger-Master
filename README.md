@@ -1,6 +1,6 @@
 ## Burger-Master
 
-#### Burger-Master is an app that lets the user 'devour' one of the burgers in the 'To Be Eaten' by click on a 'Devour' button. The app has three prepopulated burger in the 'To Be Eaten' list. The user may also add a new burger of their own choice to be listed with the option to 'devour' this burger.
+#### Burger-Master is an app that lets the user 'devour' one of the burgers in the 'To Be Eaten' by clicking on a 'Devour' button. The app has prepopulated burger in the 'To Be Eaten' list. The user may also add a new burger of their own choice to be listed with the option to 'devour' this burger.
 
 ![picture](/public/assets/img/start.png)
 
@@ -16,7 +16,7 @@
 
 ![picture](/public/assets/img/adda.png)
 
-#### The new item is now disaplay and is available to be devoured.
+#### The new item is now displayed and is available to be devoured.
 
 ![picture](/public/assets/img/added.png)
 
